@@ -38,22 +38,45 @@ ___CSS_LOADER_EXPORT___.push([module.id, `*{
 header{
     height: fit-content;
     grid-row: 1/2;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+
 }
 
+#logoContainer{
+    grid-column: 1/2;
+    width: fit-content;
+
+    display: flex;
+}
+#searchContainer{
+    grid-column: 2/3;
+    width: fit-content;
+}
+#tempUnits{
+    grid-column: 3/4;
+    width: fit-content;
+}
 /* Main contents */
 main{
     /* Setting up positioning */
-    height: fit-content;
+    height: auto;
     grid-row: 2/3;
     /* container manipulation */
+    display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    justify-content: center;
+    align-items: center;
 
 }
 
+/* Current day card info */
+
 #currentDayCard{
-    /* Setting up positioning */
+    width: 100%;
+    /* Setting position in main */
     grid-column: 2/3;
     grid-row: 2/3;
 
@@ -61,11 +84,41 @@ main{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+#dayMainInfo{
+    
+    display: flex;
+    flex-direction: column;
+}
+
+#dayAdditionalInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Following days */
+
+#followingDays{
+    /* Setting position in main */
+    grid-column: 1/4;
+    grid-row: 3/4;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.forcastCard{
+    height: 150px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Footer contents */
 footer{
     height: fit-content;
     grid-row: 3/4;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB;;AAEA,WAAW;AACX;IACI,cAAc;IACd,aAAa;IACb,iCAAiC;IACjC,oEAAoE;;AAExE;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;IACb,aAAa;IACb,8BAA8B;AAClC;;AAEA,kBAAkB;AAClB;IACI,2BAA2B;IAC3B,mBAAmB;IACnB,aAAa;IACb,2BAA2B;IAC3B,kCAAkC;;AAEtC;;AAEA;IACI,2BAA2B;IAC3B,gBAAgB;IAChB,aAAa;;IAEb,aAAa;IACb,kCAAkC;AACtC;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;AACjB","sourcesContent":["*{\n    border: 1px solid red;\n}\n\n/* Global */\n#content {\n    height: 100svh;\n    display: grid;\n    grid-template-rows: auto 1fr auto;\n    /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n/* Header contents */\nheader{\n    height: fit-content;\n    grid-row: 1/2;\n    display: flex;\n    justify-content: space-between;\n}\n\n/* Main contents */\nmain{\n    /* Setting up positioning */\n    height: fit-content;\n    grid-row: 2/3;\n    /* container manipulation */\n    grid-template-columns: 1fr 2fr 1fr;\n\n}\n\n#currentDayCard{\n    /* Setting up positioning */\n    grid-column: 2/3;\n    grid-row: 2/3;\n\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n}\n\n/* Footer contents */\nfooter{\n    height: fit-content;\n    grid-row: 3/4;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB;;AAEA,WAAW;AACX;IACI,cAAc;IACd,aAAa;IACb,iCAAiC;IACjC,oEAAoE;;AAExE;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;IACb,aAAa;IACb,kCAAkC;IAClC,qBAAqB;IACrB,mBAAmB;;AAEvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;;IAElB,aAAa;AACjB;AACA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;AACA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;AACA,kBAAkB;AAClB;IACI,2BAA2B;IAC3B,YAAY;IACZ,aAAa;IACb,2BAA2B;IAC3B,aAAa;IACb,kCAAkC;IAClC,uBAAuB;IACvB,mBAAmB;;AAEvB;;AAEA,0BAA0B;;AAE1B;IACI,WAAW;IACX,6BAA6B;IAC7B,gBAAgB;IAChB,aAAa;;IAEb,aAAa;IACb,kCAAkC;AACtC;;AAEA;;IAEI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA,mBAAmB;;AAEnB;IACI,6BAA6B;IAC7B,gBAAgB;IAChB,aAAa;IACb,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,uBAAuB;AAC3B;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;AACjB","sourcesContent":["*{\n    border: 1px solid red;\n}\n\n/* Global */\n#content {\n    height: 100svh;\n    display: grid;\n    grid-template-rows: auto 1fr auto;\n    /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n/* Header contents */\nheader{\n    height: fit-content;\n    grid-row: 1/2;\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    justify-items: center;\n    align-items: center;\n\n}\n\n#logoContainer{\n    grid-column: 1/2;\n    width: fit-content;\n\n    display: flex;\n}\n#searchContainer{\n    grid-column: 2/3;\n    width: fit-content;\n}\n#tempUnits{\n    grid-column: 3/4;\n    width: fit-content;\n}\n/* Main contents */\nmain{\n    /* Setting up positioning */\n    height: auto;\n    grid-row: 2/3;\n    /* container manipulation */\n    display: grid;\n    grid-template-columns: 1fr 2fr 1fr;\n    justify-content: center;\n    align-items: center;\n\n}\n\n/* Current day card info */\n\n#currentDayCard{\n    width: 100%;\n    /* Setting position in main */\n    grid-column: 2/3;\n    grid-row: 2/3;\n\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n}\n\n#dayMainInfo{\n    \n    display: flex;\n    flex-direction: column;\n}\n\n#dayAdditionalInfo{\n    display: flex;\n    flex-direction: column;\n}\n\n/* Following days */\n\n#followingDays{\n    /* Setting position in main */\n    grid-column: 1/4;\n    grid-row: 3/4;\n    display: flex;\n    justify-content: space-evenly;\n}\n\n.forcastCard{\n    height: 150px;\n    width: 150px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n\n/* Footer contents */\nfooter{\n    height: fit-content;\n    grid-row: 3/4;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -600,4 +653,4 @@ console.log("test");
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle9e6e10da8fa64805fbab.js.map
+//# sourceMappingURL=bundle2931150aafbefdd3fdcf.js.map
