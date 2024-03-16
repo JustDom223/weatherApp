@@ -23,7 +23,49 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `*{
     border: 1px solid red;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB","sourcesContent":["*{\n    border: 1px solid red;\n}"],"sourceRoot":""}]);
+}
+
+/* Global */
+#content {
+    height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    /* transition: all 0.3s ease; Smooth transition for all properties */
+
+}
+
+/* Header contents */
+header{
+    height: fit-content;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Main contents */
+main{
+    /* Setting up positioning */
+    height: fit-content;
+    grid-row: 2/3;
+    /* container manipulation */
+    grid-template-columns: 1fr 2fr 1fr;
+
+}
+
+#currentDayCard{
+    /* Setting up positioning */
+    grid-column: 2/3;
+    grid-row: 2/3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Footer contents */
+footer{
+    height: fit-content;
+    grid-row: 3/4;
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB;;AAEA,WAAW;AACX;IACI,cAAc;IACd,aAAa;IACb,iCAAiC;IACjC,oEAAoE;;AAExE;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;IACb,aAAa;IACb,8BAA8B;AAClC;;AAEA,kBAAkB;AAClB;IACI,2BAA2B;IAC3B,mBAAmB;IACnB,aAAa;IACb,2BAA2B;IAC3B,kCAAkC;;AAEtC;;AAEA;IACI,2BAA2B;IAC3B,gBAAgB;IAChB,aAAa;;IAEb,aAAa;IACb,kCAAkC;AACtC;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;AACjB","sourcesContent":["*{\n    border: 1px solid red;\n}\n\n/* Global */\n#content {\n    height: 100svh;\n    display: grid;\n    grid-template-rows: auto 1fr auto;\n    /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n/* Header contents */\nheader{\n    height: fit-content;\n    grid-row: 1/2;\n    display: flex;\n    justify-content: space-between;\n}\n\n/* Main contents */\nmain{\n    /* Setting up positioning */\n    height: fit-content;\n    grid-row: 2/3;\n    /* container manipulation */\n    grid-template-columns: 1fr 2fr 1fr;\n\n}\n\n#currentDayCard{\n    /* Setting up positioning */\n    grid-column: 2/3;\n    grid-row: 2/3;\n\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n}\n\n/* Footer contents */\nfooter{\n    height: fit-content;\n    grid-row: 3/4;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -558,4 +600,4 @@ console.log("test");
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlefa77146e8bfc9ae70d68.js.map
+//# sourceMappingURL=bundle9e6e10da8fa64805fbab.js.map
