@@ -1,0 +1,30 @@
+*{
+    border: 1px solid red;
+}
+
+/* Global */
+#content {
+    height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    /* transition: all 0.3s ease; Smooth transition for all properties */
+
+  }
+
+
+header{
+    height: fit-content;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: space-between;
+}
+
+main{
+    height: fit-content;
+    grid-row: 2/3;
+}
+
+footer{
+    height: fit-content;
+    grid-row: 3/4;
+}

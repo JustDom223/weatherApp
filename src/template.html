@@ -9,7 +9,34 @@
             <title><%= htmlWebpackPlugin.options.title %></title>
       </head>
       <body>
-            <dialog id="contentForm"></dialog>
-            <div id="content"></div>
+            <div id="content">
+                  <header>
+                        <div id="logoContainer">
+                              <img src="" alt="">
+                              <h1>Drop Bear Weather</h1>
+
+                        </div>
+                        <div id="searchConstainer">
+                              <label for="locationSearchBar">Search location</label>
+                              <input type="text" name="locationSearch" id="locationSearchBar">
+                        </div>
+                        <div id="tempUnits">
+                              <span>°C</span>
+                              <input type="range" min="1" max="2" name="tempSlider" id="tempSlider">
+                              <span>°F</span>
+                        </div>
+                  </header>
+                  <main>
+                        <div  id="currentDayCard">
+
+                        </div>
+                        <div id="followingDays">
+
+                        </div>
+                  </main>
+                  <footer>
+                        this is the footer
+                  </footer>
+            </div>
       </body>
 </html>
