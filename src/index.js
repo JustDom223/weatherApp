@@ -1,26 +1,21 @@
 import "./styles/main.css";
-
-console.log("test");
-
-
+import getSevenDayConditionsArray from "./weatherAPIFunctions/getSevenDayConditionArray";
+import getWeather from "./weatherAPIFunctions/getWeather";
 
 const weatherAPI = "711063798872415aa7b221239241003";
 const weatherLocation = "Maastricht";
-const  giphyAPI = "ED9FuiTtRxtrUzJCFdwQ5IyzTYEJoZQY";
-
-
-async function getWeather(API,location){
-    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API}&q=${location}&days=7`);
-    const weatherData = await response.json();
-    return weatherData;
- 
-
-}
+// const  giphyAPI = "ED9FuiTtRxtrUzJCFdwQ5IyzTYEJoZQY";
 
 
 
-document.addEventListener("DOMContentLoaded", ()=> {
-    console.log(getWeather(weatherAPI, weatherLocation));
+
+
+document.addEventListener("DOMContentLoaded", async ()=> {
+    const weatherData = await getWeather(weatherAPI, weatherLocation);
+    const conditionsArray = await getSevenDayConditionsArray(weatherData);
+    console.log(conditionsArray);
+    // console.log(weatherData);
+    // console.log(getSevenDayConditionsArray(weatherData));
 });
 
 
