@@ -1,10 +1,11 @@
 export default async function getSevenDayConditionsArray(data){
     try{
         const forecastdays = await data.forecast.forecastday;
+        const dayConditions = [];
         forecastdays.forEach(day =>
-            console.log(day.day.condition.text));
+            dayConditions.push(day.day.condition.text));
 
-        return forecastdays;
+        return dayConditions;
     }catch(err){
         console.log(err);
         return null;
