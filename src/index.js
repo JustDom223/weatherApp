@@ -15,10 +15,10 @@ const numberOfDaysForecasted = 3;
 document.addEventListener("DOMContentLoaded", async ()=> {
     const updateButtonElement = document.querySelector("#weatherUpdate");
 
-    
-    updateButtonElement.addEventListener('click', async () => {
+    updateButtonElement.addEventListener("click", async () => {
         const newSearch = updateSearch();
         const weatherData = await getWeather(weatherAPI, newSearch, numberOfDaysForecasted);
+        console.log(weatherData)
         const conditionsArray = await getSevenDayConditionsArray(weatherData);
         displayDailyForecast(conditionsArray);
 
