@@ -67,6 +67,20 @@ main{
     flex-direction: column;
 }
 
+#daySunriseSunset{
+    display: flex;
+    justify-content: space-around;
+}
+
+#sunrise{
+    display: flex;
+    flex-direction: column;
+}
+#sunset{
+    display: flex;
+    flex-direction: column;
+}
+
 #dayAdditionalInfo{
     display: flex;
     flex-direction: column;
