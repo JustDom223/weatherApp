@@ -1,7 +1,7 @@
 export default async function displayDailyForecast(conditionsArray){
     const followingDaysElement = document.querySelector("#followingDays");
     followingDaysElement.textContent = "";
-    conditionsArray.forEach(day => {
+    conditionsArray.slice(1).forEach(day => {
         // Create forecast card and children
         const forecastCard = document.createElement("div");
         const forecastType = document.createElement("span");
