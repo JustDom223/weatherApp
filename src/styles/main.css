@@ -71,12 +71,7 @@ main{
     display: flex;
     justify-content: space-around;
 }
-
-#sunrise{
-    display: flex;
-    flex-direction: column;
-}
-#sunset{
+.sun{
     display: flex;
     flex-direction: column;
 }
