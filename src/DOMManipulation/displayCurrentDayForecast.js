@@ -15,9 +15,19 @@ export default async function displayCurrrentDayForecast(data){
     daySunriseElement.classList.add("sun");
     daySunsetElement.classList.add("sun");
     // Adding element contents
-    currentDayTempElement.textContent = `Current temp: ${data.current.temp_c}`;
-    currentDayFeelsLikeElement.textContent = `Feels like: ${data.current.feelslike_c}`;
-    tempRangeElement.textContent = `Today's range: ${data.forecast.forecastday[0].day.mintemp_c} - ${data.forecast.forecastday[0].day.maxtemp_c}`;
+    const tempC = true;
+
+    if(tempC){
+        currentDayTempElement.textContent = `Current temp: ${data.current.temp_c}`;
+        currentDayFeelsLikeElement.textContent = `Feels like: ${data.current.feelslike_c}`;
+        tempRangeElement.textContent = `Today's range: ${data.forecast.forecastday[0].day.mintemp_c} - ${data.forecast.forecastday[0].day.maxtemp_c}`;
+    }else{
+        currentDayTempElement.textContent = `Current temp: ${data.current.temp_f}`;
+        currentDayFeelsLikeElement.textContent = `Feels like: ${data.current.feelslike_f}`;
+        tempRangeElement.textContent = `Today's range: ${data.forecast.forecastday[0].day.mintemp_f} - ${data.forecast.forecastday[0].day.maxtemp_f}`;
+        
+    }
+    
     locationElement.textContent = `${data.location.name} - ${data.location.region}`;
 
     daySunriseElement.textContent = `Sunrise: ${data.forecast.forecastday[0].astro.sunrise}`;
