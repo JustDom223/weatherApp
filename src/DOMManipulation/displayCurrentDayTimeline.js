@@ -1,20 +1,35 @@
-export default async function displayCurrrentDayTimeline(data){
+// Create a Object with all of the time and temps for the day as Key/Value pairs
+async function createTimeTempObjectArray(data){
     try{
-        const dayTimelineArray = [];
+        const dayTimelineObject = {};
         await data.forecast.forecastday[0].hour.forEach((hour, index) => {
-            if(index % 3 ===0) {
-                console.log(hour.time);
-                dayTimelineArray.push(hour.temp_c);
+            if(index % 2 === 0) {
+                const time = hour.time.slice(-5);
+                dayTimelineObject[time] = hour.temp_c;
             }
         });
-        console.log(dayTimelineArray)
-        return dayTimelineArray;
+        return dayTimelineObject;
     }catch(err){
         console.log(err);
         return null;
     }
 }
 
+export default async function displayCurrrentDayTimeline(data){
+    try{
+        const timeTempObject = await createTimeTempObjectArray(data);
+        const dailyTimeLineElement = document.querySelector("#dailyTimeline");
+        dailyTimeLineElement.textContent = "";
 
+        Object.entries(timeTempObject).forEach(([key, value]) => {
+            const hourlyTimeTemp = document.createElement("span");
+            hourlyTimeTemp.classList.add("timeline");
 
-// forecast.forecastday[0].hour[0].temp_c
+            hourlyTimeTemp.textContent = `${key} - ${value}°C`;
+            dailyTimeLineElement.appendChild(hourlyTimeTemp);
+        });
+    }catch(err){
+        console.log(err);
+    }
+
+}
