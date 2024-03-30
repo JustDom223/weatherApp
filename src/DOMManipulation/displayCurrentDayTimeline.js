@@ -22,7 +22,7 @@ export default async function displayCurrrentDayTimeline(data){
         dailyTimeLineElement.textContent = "";
 
         Object.entries(timeTempObject).forEach(([key, value]) => {
-            const hourlyTimeTemp = document.createElement("span");
+            const hourlyTimeTemp = document.createElement("p");
             hourlyTimeTemp.classList.add("timeline");
 
             hourlyTimeTemp.textContent = `${key} - ${value}°C`;
@@ -31,5 +31,4 @@ export default async function displayCurrrentDayTimeline(data){
     }catch(err){
         console.log(err);
     }
-
 }

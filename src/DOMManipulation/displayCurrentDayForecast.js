@@ -2,14 +2,14 @@ export default async function displayCurrrentDayForecast(data){
     const dayMainInfoElement = document.querySelector("#dayMainInfo");  
     dayMainInfoElement.textContent = "";
 
-    const currentDayTempElement = document.createElement("span");
-    const currentDayFeelsLikeElement = document.createElement("span");
-    const tempRangeElement = document.createElement("span");
-    const locationElement = document.createElement("span");
+    const currentDayTempElement = document.createElement("p");
+    const currentDayFeelsLikeElement = document.createElement("p");
+    const tempRangeElement = document.createElement("p");
+    const locationElement = document.createElement("p");
     
     const daySunriseSunsetElement = document.createElement("div");
-    const daySunriseElement = document.createElement("span");
-    const daySunsetElement = document.createElement("span");
+    const daySunriseElement = document.createElement("p");
+    const daySunsetElement = document.createElement("p");
     // Adding classes and ID's to elements 
     daySunriseSunsetElement.id = "daySunriseSunset";
     daySunriseElement.classList.add("sun");
