@@ -82,11 +82,17 @@ main{
 
 #daySunriseSunset{
     display: flex;
+    /* flex-direction: column; */
     justify-content: space-around;
 }
+
 .sun{
     display: flex;
     flex-direction: column;
+}
+
+.sunSVG{
+    height: 40px;
 }
 
 #dayAdditionalInfo{
