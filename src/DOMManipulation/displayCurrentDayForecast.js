@@ -5,6 +5,14 @@ import sunriseSVG from "../imgs/svgs/sunriseSunset/reshot-icon-sun-arrow-96SYUPF
 import sunsetSVG from "../imgs/svgs/sunriseSunset/reshot-icon-sun-arrow-EL79YXU2AJ.svg";
 
 import sunnySVG from "../imgs/svgs/weather/reshot-icon-sun-S9ZW4T6UGQ.svg";
+import lightningCloudSVG from "../imgs/svgs/weather/reshot-icon-electric-clouds-DKLY6EF9H5.svg";
+import rainSVG from "../imgs/svgs/weather/reshot-icon-rain-5YXUMGH6ZB.svg";
+import cloudsSVG from "../imgs/svgs/weather/reshot-icon-rain-clouds-QTLW32D7FR.svg";
+import snowCloudsSVG from "../imgs/svgs/weather/reshot-icon-snow-cloud-TPC7FB3GAV.svg";
+import mostlyCloudySVG from "../imgs/svgs/weather/reshot-icon-sun-and-cloud-65PMRJT84G.svg";
+import partlyCloudySVG from "../imgs/svgs/weather/reshot-icon-sun-and-cloud-UHYFETRWJ2.svg";
+import windySVG from "../imgs/svgs/weather/reshot-icon-wind-ER6Q95XJA7.svg";
+
 
 async function displayWeatherSVG(data){
     try{
@@ -14,13 +22,20 @@ async function displayWeatherSVG(data){
         case "Clear":
         case "Sunny":
             console.log("The sun is out boiii");
-            break;
-        
+            return createSVGImg(sunnySVG, "weatherSVG", "currentWeatherSVG");
+            
+            
         case "Partly cloudy":
+            return createSVGImg(partlyCloudySVG, "weatherSVG", "currentWeatherSVG");
         case "Cloudy":
+            return createSVGImg(cloudsSVG, "weatherSVG", "currentWeatherSVG");
         case "Overcast":
             console.log("Weather condition is cloudy.");
-            return createSVGImg(sunnySVG, "weatherSVG", "currentWeatherSVG");
+            return createSVGImg(mostlyCloudySVG, "weatherSVG", "currentWeatherSVG");
+
+        case "Patchy light snow with thunder":
+        case "Moderate or heavy rain with thunder":
+            return createSVGImg(lightningCloudSVG, "weatherSVG", "currentWeatherSVG");
 
         case "Patchy light drizzle":
         case "Light drizzle":
@@ -35,10 +50,8 @@ async function displayWeatherSVG(data){
         case "Patchy light sleet":
         case "Light sleet":
         case "Moderate or heavy sleet":
-        case "Patchy light snow with thunder":
-        case "Moderate or heavy rain with thunder":
             console.log("Weather condition is rainy.");
-            break;
+            return createSVGImg(rainSVG, "weatherSVG", "currentWeatherSVG");
         
         case "Patchy light snow":
         case "Light snow":
@@ -52,8 +65,7 @@ async function displayWeatherSVG(data){
         case "Moderate or heavy showers of ice pellets":
         case "Moderate or heavy snow with thunder":
             console.log("Weather condition is snowy.");
-            break;
-      
+            return createSVGImg(snowCloudsSVG, "weatherSVG", "currentWeatherSVG");
         case "Mist":
         case "Fog":
         case "Freezing fog":
@@ -77,7 +89,7 @@ export default async function displayCurrrentDayForecast(data){
     const sunriseSVGElement = createSVGImg(sunriseSVG, "sunSVG", "sunRiseSVG");
     const sunsetSVGElement = createSVGImg(sunsetSVG, "sunSVG", "sunSetSVG");
 
-    const currentWeatherSVG = displayWeatherSVG(data);
+    const currentWeatherSVG = await displayWeatherSVG(data);
     console.log(currentWeatherSVG);
 
     const currentDayTempElement = document.createElement("p");
@@ -123,7 +135,7 @@ export default async function displayCurrrentDayForecast(data){
     daySunriseSunsetElement.appendChild(daySunriseContainerElement);
     daySunriseSunsetElement.appendChild(daySunsetContainerElement);
 
-    // dayMainInfoElement.appendChild(currentWeatherSVG);
+    dayMainInfoElement.appendChild(currentWeatherSVG);
     dayMainInfoElement.appendChild(currentDayTempElement);
     dayMainInfoElement.appendChild(currentDayFeelsLikeElement);
     dayMainInfoElement.appendChild(tempRangeElement);
