@@ -1,7 +1,7 @@
 import createMainChildElements from "./DOMManipulation/createMainChildElements";
 import displayCurrentDayAdditionalInfo from "./DOMManipulation/displayCurrentDayAdditionalInfo";
 import displayCurrrentDayForecast from "./DOMManipulation/displayCurrentDayForecast";
-import displayCurrrentDayTimeline from "./DOMManipulation/displayCurrentDayTimeline";
+import displayCurrrentDayConditionTimeline from "./DOMManipulation/displayCurrrentDayConditionTimeline";
 import displayDailyForecast from "./DOMManipulation/displayDailyForecast";
 import updateSearch from "./DOMManipulation/updateSearch";
 import "./styles/main.css";
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async ()=> {
         mainElement.appendChild(createMainChildElements());
         displayCurrrentDayForecast(weatherData);
         displayDailyForecast(weatherData);
-        displayCurrrentDayTimeline(weatherData);
+        displayCurrrentDayConditionTimeline(weatherData);
         displayCurrentDayAdditionalInfo(weatherData);
 
     });

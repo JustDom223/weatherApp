@@ -59,6 +59,10 @@ main{
 
 /* Current day card info */
 
+.weatherSVG{
+    height: 80px;
+}
+
 #currentDayCard{
     width: 100%;
     /* Setting position in main */
@@ -72,6 +76,16 @@ main{
 #dailyTimeline{
     display: flex;
     flex-direction: column;
+}
+
+#hourlyTimelineContainer{
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+}
+
+.conditionSVG{
+    height: 20px;
 }
 
 #dayMainInfo{
