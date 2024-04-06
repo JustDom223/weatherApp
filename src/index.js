@@ -1,3 +1,4 @@
+import addKeyEvents from "./DOMManipulation/activateKeyboardEventlisteners";
 import createMainChildElements from "./DOMManipulation/createMainChildElements";
 import displayCurrentDayAdditionalInfo from "./DOMManipulation/displayCurrentDayAdditionalInfo";
 import displayCurrrentDayForecast from "./DOMManipulation/displayCurrentDayForecast";
@@ -17,6 +18,7 @@ const numberOfDaysForecasted = 3;
 document.addEventListener("DOMContentLoaded", async ()=> {
     const updateButtonElement = document.querySelector("#weatherUpdate");
     const mainElement = document.querySelector("main");
+    addKeyEvents()
 
     updateButtonElement.addEventListener("click", async () => {
         mainElement.textContent = "";

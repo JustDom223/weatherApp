@@ -1,5 +1,5 @@
 *{
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 p{
@@ -54,7 +54,12 @@ main{
 }
 
 #mainContent{
+    background-color: rgb(165, 213, 255);
     grid-column: 2/3;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+
 }
 
 /* Current day card info */
@@ -80,7 +85,7 @@ main{
 
 #hourlyTimelineContainer{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     /* flex-direction: column; */
 }
 

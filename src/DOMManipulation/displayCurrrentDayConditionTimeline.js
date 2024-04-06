@@ -37,8 +37,8 @@ export default async function displayCurrrentDayConditionTimeline(data){
             hourlyTimeTemp.textContent = `${key} - ${value.temperature}°C`;
             conditionSVG.classList.add("conditionSVG");
 
-            hourlyContainer.appendChild(hourlyTimeTemp);
             hourlyContainer.appendChild(conditionSVG);
+            hourlyContainer.appendChild(hourlyTimeTemp);
 
             dailyTimeLineElement.appendChild(hourlyContainer);
         });
