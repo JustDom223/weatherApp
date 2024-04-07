@@ -39,6 +39,20 @@ header{
 #tempUnits{
     grid-column: 3/4;
     width: fit-content;
+    display: flex;
+}
+
+#tempToggle{
+    border: 1px black solid;
+    width: 30px;
+    border-radius: 20px;
+}
+
+#tempToggleSwitch{
+    border: 1px black solid;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
 }
 /* Main contents */
 main{
