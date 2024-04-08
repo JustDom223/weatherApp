@@ -2,16 +2,23 @@ import displayWeatherSVG from "./displayWeatherSVG";
 
 
 // Create a Object with all of the time and temps for the day as Key/Value pairs
-async function createTimeTempObjectArray(data){
+async function createTimeTempObjectArray(data, tempC){
     try{
         const dayTimelineObject = {};
         await data.forecast.forecastday[0].hour.forEach((hour, index) => {
             if(index % 2 === 0) {
                 const time = hour.time.slice(-5);
-                dayTimelineObject[time] = {
-                    temperature: hour.temp_c,
-                    condition: hour.condition.text,
-                };
+                if (tempC){
+                    dayTimelineObject[time] = {
+                        temperature: hour.temp_c,
+                        condition: hour.condition.text,
+                    };}else{
+                    dayTimelineObject[time] = {
+                        temperature: hour.temp_f,
+                        condition: hour.condition.text,
+
+                    };     
+                }
             }
         });
         return dayTimelineObject;
@@ -21,12 +28,11 @@ async function createTimeTempObjectArray(data){
     }
 }
 
-export default async function displayCurrrentDayConditionTimeline(data){
+export default async function displayCurrrentDayConditionTimeline(data, tempC){
     try{
-        const timeTempObject = await createTimeTempObjectArray(data);
+        const timeTempObject = await createTimeTempObjectArray(data, tempC);
         const dailyTimeLineElement = document.querySelector("#dailyTimeline");
         dailyTimeLineElement.textContent = "";
-
         Object.entries(timeTempObject).forEach(async([key, value]) => {
             const hourlyContainer = document.createElement("div");
             const hourlyTimeTemp = document.createElement("p");
@@ -34,7 +40,13 @@ export default async function displayCurrrentDayConditionTimeline(data){
             hourlyTimeTemp.classList.add("timeline");
 
             hourlyContainer.id = "hourlyTimelineContainer";
-            hourlyTimeTemp.textContent = `${key} - ${value.temperature}°C`;
+            if(tempC){
+                hourlyTimeTemp.textContent = `${key} - ${value.temperature}°C`;
+                
+            }else{
+                hourlyTimeTemp.textContent = `${key} - ${value.temperature}°F`;
+                
+            }
             conditionSVG.classList.add("conditionSVG");
 
             hourlyContainer.appendChild(conditionSVG);

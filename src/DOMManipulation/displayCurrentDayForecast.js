@@ -7,7 +7,7 @@ import sunsetSVG from "../imgs/svgs/sunriseSunset/reshot-icon-sun-arrow-EL79YXU2
 
 
 
-export default async function displayCurrrentDayForecast(data){
+export default async function displayCurrrentDayForecast(data, tempC){
     const dayMainInfoElement = document.querySelector("#dayMainInfo");  
     dayMainInfoElement.textContent = "";
     const sunriseSVGElement = createSVGImg(sunriseSVG, "sunSVG", "sunRiseSVG");
@@ -30,16 +30,15 @@ export default async function displayCurrrentDayForecast(data){
     daySunriseContainerElement.classList.add("sun");
     daySunsetContainerElement.classList.add("sun");
     // Adding element contents
-    const tempC = true;
 
     if(tempC){
-        currentDayTempElement.textContent = `Current temp: ${data.current.temp_c}`;
-        currentDayFeelsLikeElement.textContent = `Feels like: ${data.current.feelslike_c}`;
-        tempRangeElement.textContent = `Today's range: ${data.forecast.forecastday[0].day.mintemp_c} - ${data.forecast.forecastday[0].day.maxtemp_c}`;
+        currentDayTempElement.textContent = `Current temp: ${data.current.temp_c}°C`;
+        currentDayFeelsLikeElement.textContent = `Feels like: ${data.current.feelslike_c}°C`;
+        tempRangeElement.textContent = `Today's range: ${data.forecast.forecastday[0].day.mintemp_c} - ${data.forecast.forecastday[0].day.maxtemp_c}°C`;
     }else{
-        currentDayTempElement.textContent = `Current temp: ${data.current.temp_f}`;
-        currentDayFeelsLikeElement.textContent = `Feels like: ${data.current.feelslike_f}`;
-        tempRangeElement.textContent = `Today's range: ${data.forecast.forecastday[0].day.mintemp_f} - ${data.forecast.forecastday[0].day.maxtemp_f}`;
+        currentDayTempElement.textContent = `Current temp: ${data.current.temp_f}°F`;
+        currentDayFeelsLikeElement.textContent = `Feels like: ${data.current.feelslike_f}°F`;
+        tempRangeElement.textContent = `Today's range: ${data.forecast.forecastday[0].day.mintemp_f} - ${data.forecast.forecastday[0].day.maxtemp_f}°F`;
         
     }
     

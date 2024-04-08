@@ -1,7 +1,7 @@
 import displayWeatherSVG from "./displayWeatherSVG";
 
 
-export default async function displayDailyForecast(data){
+export default async function displayDailyForecast(data, tempC){
     const followingDaysElement = document.querySelector("#followingDays");
     followingDaysElement.textContent = "";
     data.forecast.forecastday.slice(1).forEach(async day => {
