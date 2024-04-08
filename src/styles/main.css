@@ -42,17 +42,27 @@ header{
     display: flex;
 }
 
-#tempToggle{
+#tempToggle {
     border: 1px black solid;
+    display: flex;
     width: 30px;
     border-radius: 20px;
+    justify-content: start;
+    position: relative;
 }
 
-#tempToggleSwitch{
+#tempToggleSwitch {
     border: 1px black solid;
     width: 15px;
     height: 15px;
     border-radius: 10px;
+    transition: transform 500ms ease-in-out;
+    position: absolute;
+    left: 0;
+}
+
+#tempToggleSwitch.americaFY {
+    transform: translateX(85%);
 }
 /* Main contents */
 main{
