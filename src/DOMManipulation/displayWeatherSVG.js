@@ -32,6 +32,7 @@ export default async function displayWeatherSVG(weatherData){
         case "patchy light snow with thunder":
         case "patchy light rain with thunder":
         case "moderate or heavy rain with thunder":
+        case "thundery outbreaks in nearby":
             return createSVGImg(lightningCloudSVG, "weatherSVG");
             
         case "patchy rain possible":
@@ -48,6 +49,7 @@ export default async function displayWeatherSVG(weatherData){
         case "heavy rain":
         case "light freezing rain":
         case "torrential rain shower":
+        case "moderate or heavy rain shower":
         case "moderate or heavy freezing rain":
         case "patchy light sleet":
         case "moderate or heavy sleet":
