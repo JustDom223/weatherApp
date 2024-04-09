@@ -65,17 +65,27 @@ header{
     display: flex;
 }
 
-#tempToggle{
+#tempToggle {
     border: 1px black solid;
+    display: flex;
     width: 30px;
     border-radius: 20px;
+    justify-content: start;
+    position: relative;
 }
 
-#tempToggleSwitch{
+#tempToggleSwitch {
     border: 1px black solid;
     width: 15px;
     height: 15px;
     border-radius: 10px;
+    transition: transform 500ms ease-in-out;
+    position: absolute;
+    left: 0;
+}
+
+#tempToggleSwitch.americaFY {
+    transform: translateX(85%);
 }
 /* Main contents */
 main{
@@ -179,7 +189,7 @@ main{
 footer{
     height: fit-content;
     grid-row: 3/4;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,2BAA2B;AAC/B;;AAEA;IACI,SAAS;AACb;;AAEA,WAAW;AACX;IACI,cAAc;IACd,aAAa;IACb,iCAAiC;IACjC,oEAAoE;;AAExE;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;IACb,aAAa;IACb,kCAAkC;IAClC,qBAAqB;IACrB,mBAAmB;;AAEvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;;IAElB,aAAa;AACjB;AACA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;AACA;IACI,gBAAgB;IAChB,kBAAkB;IAClB,aAAa;AACjB;;AAEA;IACI,uBAAuB;IACvB,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,uBAAuB;IACvB,WAAW;IACX,YAAY;IACZ,mBAAmB;AACvB;AACA,kBAAkB;AAClB;IACI,2BAA2B;IAC3B,YAAY;IACZ,aAAa;IACb,2BAA2B;IAC3B,aAAa;IACb,kCAAkC;IAClC,uBAAuB;IACvB,mBAAmB;;AAEvB;;AAEA;IACI,oCAAoC;IACpC,gBAAgB;IAChB,uBAAuB;IACvB,mBAAmB;IACnB,aAAa;;AAEjB;;AAEA,0BAA0B;;AAE1B;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,6BAA6B;IAC7B,gBAAgB;IAChB,aAAa;;IAEb,aAAa;IACb,kCAAkC;AACtC;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,oCAAoC;IACpC,4BAA4B;AAChC;;AAEA;IACI,YAAY;AAChB;;AAEA;;IAEI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,4BAA4B;IAC5B,6BAA6B;AACjC;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA,mBAAmB;;AAEnB;IACI,6BAA6B;IAC7B,gBAAgB;IAChB,aAAa;IACb,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,uBAAuB;AAC3B;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;AACjB","sourcesContent":["*{\n    /* border: 1px solid red; */\n}\n\np{\n    margin: 0;\n}\n\n/* Global */\n#content {\n    height: 100svh;\n    display: grid;\n    grid-template-rows: auto 1fr auto;\n    /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n/* Header contents */\nheader{\n    height: fit-content;\n    grid-row: 1/2;\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    justify-items: center;\n    align-items: center;\n\n}\n\n#logoContainer{\n    grid-column: 1/2;\n    width: fit-content;\n\n    display: flex;\n}\n#searchContainer{\n    grid-column: 2/3;\n    width: fit-content;\n}\n#tempUnits{\n    grid-column: 3/4;\n    width: fit-content;\n    display: flex;\n}\n\n#tempToggle{\n    border: 1px black solid;\n    width: 30px;\n    border-radius: 20px;\n}\n\n#tempToggleSwitch{\n    border: 1px black solid;\n    width: 15px;\n    height: 15px;\n    border-radius: 10px;\n}\n/* Main contents */\nmain{\n    /* Setting up positioning */\n    height: auto;\n    grid-row: 2/3;\n    /* container manipulation */\n    display: grid;\n    grid-template-columns: 1fr 2fr 1fr;\n    justify-content: center;\n    align-items: center;\n\n}\n\n#mainContent{\n    background-color: rgb(165, 213, 255);\n    grid-column: 2/3;\n    border: 1px solid black;\n    border-radius: 10px;\n    padding: 10px;\n\n}\n\n/* Current day card info */\n\n.weatherSVG{\n    height: 80px;\n}\n\n#currentDayCard{\n    width: 100%;\n    /* Setting position in main */\n    grid-column: 2/3;\n    grid-row: 2/3;\n\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n}\n\n#dailyTimeline{\n    display: flex;\n    flex-direction: column;\n}\n\n#hourlyTimelineContainer{\n    display: flex;\n    /* justify-content: space-between; */\n    /* flex-direction: column; */\n}\n\n.conditionSVG{\n    height: 20px;\n}\n\n#dayMainInfo{\n    \n    display: flex;\n    flex-direction: column;\n}\n\n#daySunriseSunset{\n    display: flex;\n    /* flex-direction: column; */\n    justify-content: space-around;\n}\n\n.sun{\n    display: flex;\n    flex-direction: column;\n}\n\n.sunSVG{\n    height: 40px;\n}\n\n#dayAdditionalInfo{\n    display: flex;\n    flex-direction: column;\n}\n\n/* Following days */\n\n#followingDays{\n    /* Setting position in main */\n    grid-column: 1/4;\n    grid-row: 3/4;\n    display: flex;\n    justify-content: space-evenly;\n}\n\n.forcastCard{\n    height: 150px;\n    width: 150px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n\n/* Footer contents */\nfooter{\n    height: fit-content;\n    grid-row: 3/4;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,2BAA2B;AAC/B;;AAEA;IACI,SAAS;AACb;;AAEA,WAAW;AACX;IACI,cAAc;IACd,aAAa;IACb,iCAAiC;IACjC,oEAAoE;;AAExE;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;IACb,aAAa;IACb,kCAAkC;IAClC,qBAAqB;IACrB,mBAAmB;;AAEvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;;IAElB,aAAa;AACjB;AACA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;AACA;IACI,gBAAgB;IAChB,kBAAkB;IAClB,aAAa;AACjB;;AAEA;IACI,uBAAuB;IACvB,aAAa;IACb,WAAW;IACX,mBAAmB;IACnB,sBAAsB;IACtB,kBAAkB;AACtB;;AAEA;IACI,uBAAuB;IACvB,WAAW;IACX,YAAY;IACZ,mBAAmB;IACnB,uCAAuC;IACvC,kBAAkB;IAClB,OAAO;AACX;;AAEA;IACI,0BAA0B;AAC9B;AACA,kBAAkB;AAClB;IACI,2BAA2B;IAC3B,YAAY;IACZ,aAAa;IACb,2BAA2B;IAC3B,aAAa;IACb,kCAAkC;IAClC,uBAAuB;IACvB,mBAAmB;;AAEvB;;AAEA;IACI,oCAAoC;IACpC,gBAAgB;IAChB,uBAAuB;IACvB,mBAAmB;IACnB,aAAa;;AAEjB;;AAEA,0BAA0B;;AAE1B;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,6BAA6B;IAC7B,gBAAgB;IAChB,aAAa;;IAEb,aAAa;IACb,kCAAkC;AACtC;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,oCAAoC;IACpC,4BAA4B;AAChC;;AAEA;IACI,YAAY;AAChB;;AAEA;;IAEI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,4BAA4B;IAC5B,6BAA6B;AACjC;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA,mBAAmB;;AAEnB;IACI,6BAA6B;IAC7B,gBAAgB;IAChB,aAAa;IACb,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,uBAAuB;AAC3B;;AAEA,oBAAoB;AACpB;IACI,mBAAmB;IACnB,aAAa;AACjB","sourcesContent":["*{\n    /* border: 1px solid red; */\n}\n\np{\n    margin: 0;\n}\n\n/* Global */\n#content {\n    height: 100svh;\n    display: grid;\n    grid-template-rows: auto 1fr auto;\n    /* transition: all 0.3s ease; Smooth transition for all properties */\n\n}\n\n/* Header contents */\nheader{\n    height: fit-content;\n    grid-row: 1/2;\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    justify-items: center;\n    align-items: center;\n\n}\n\n#logoContainer{\n    grid-column: 1/2;\n    width: fit-content;\n\n    display: flex;\n}\n#searchContainer{\n    grid-column: 2/3;\n    width: fit-content;\n}\n#tempUnits{\n    grid-column: 3/4;\n    width: fit-content;\n    display: flex;\n}\n\n#tempToggle {\n    border: 1px black solid;\n    display: flex;\n    width: 30px;\n    border-radius: 20px;\n    justify-content: start;\n    position: relative;\n}\n\n#tempToggleSwitch {\n    border: 1px black solid;\n    width: 15px;\n    height: 15px;\n    border-radius: 10px;\n    transition: transform 500ms ease-in-out;\n    position: absolute;\n    left: 0;\n}\n\n#tempToggleSwitch.americaFY {\n    transform: translateX(85%);\n}\n/* Main contents */\nmain{\n    /* Setting up positioning */\n    height: auto;\n    grid-row: 2/3;\n    /* container manipulation */\n    display: grid;\n    grid-template-columns: 1fr 2fr 1fr;\n    justify-content: center;\n    align-items: center;\n\n}\n\n#mainContent{\n    background-color: rgb(165, 213, 255);\n    grid-column: 2/3;\n    border: 1px solid black;\n    border-radius: 10px;\n    padding: 10px;\n\n}\n\n/* Current day card info */\n\n.weatherSVG{\n    height: 80px;\n}\n\n#currentDayCard{\n    width: 100%;\n    /* Setting position in main */\n    grid-column: 2/3;\n    grid-row: 2/3;\n\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n}\n\n#dailyTimeline{\n    display: flex;\n    flex-direction: column;\n}\n\n#hourlyTimelineContainer{\n    display: flex;\n    /* justify-content: space-between; */\n    /* flex-direction: column; */\n}\n\n.conditionSVG{\n    height: 20px;\n}\n\n#dayMainInfo{\n    \n    display: flex;\n    flex-direction: column;\n}\n\n#daySunriseSunset{\n    display: flex;\n    /* flex-direction: column; */\n    justify-content: space-around;\n}\n\n.sun{\n    display: flex;\n    flex-direction: column;\n}\n\n.sunSVG{\n    height: 40px;\n}\n\n#dayAdditionalInfo{\n    display: flex;\n    flex-direction: column;\n}\n\n/* Following days */\n\n#followingDays{\n    /* Setting position in main */\n    grid-column: 1/4;\n    grid-row: 3/4;\n    display: flex;\n    justify-content: space-evenly;\n}\n\n.forcastCard{\n    height: 150px;\n    width: 150px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n\n/* Footer contents */\nfooter{\n    height: fit-content;\n    grid-row: 3/4;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -751,7 +761,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-async function displayCurrrentDayForecast(data){
+async function displayCurrrentDayForecast(data, tempC){
     const dayMainInfoElement = document.querySelector("#dayMainInfo");  
     dayMainInfoElement.textContent = "";
     const sunriseSVGElement = (0,_imgs_svgs_imgManipulation_createSVGImg__WEBPACK_IMPORTED_MODULE_0__["default"])(_imgs_svgs_sunriseSunset_reshot_icon_sun_arrow_96SYUPFDKA_svg__WEBPACK_IMPORTED_MODULE_2__, "sunSVG", "sunRiseSVG");
@@ -774,7 +784,6 @@ async function displayCurrrentDayForecast(data){
     daySunriseContainerElement.classList.add("sun");
     daySunsetContainerElement.classList.add("sun");
     // Adding element contents
-    const tempC = true;
 
     if(tempC){
         currentDayTempElement.textContent = `Current temp: ${data.current.temp_c}°C`;
@@ -829,10 +838,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Create a Object with all of the time and temps for the day as Key/Value pairs
-async function createTimeTempObjectArray(data){
+async function createTimeTempObjectArray(data, tempC){
     try{
         const dayTimelineObject = {};
-        const tempC = true;
         await data.forecast.forecastday[0].hour.forEach((hour, index) => {
             if(index % 2 === 0) {
                 const time = hour.time.slice(-5);
@@ -856,12 +864,11 @@ async function createTimeTempObjectArray(data){
     }
 }
 
-async function displayCurrrentDayConditionTimeline(data){
+async function displayCurrrentDayConditionTimeline(data, tempC){
     try{
-        const timeTempObject = await createTimeTempObjectArray(data);
+        const timeTempObject = await createTimeTempObjectArray(data, tempC);
         const dailyTimeLineElement = document.querySelector("#dailyTimeline");
         dailyTimeLineElement.textContent = "";
-        const tempC = true;
         Object.entries(timeTempObject).forEach(async([key, value]) => {
             const hourlyContainer = document.createElement("div");
             const hourlyTimeTemp = document.createElement("p");
@@ -905,7 +912,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-async function displayDailyForecast(data){
+async function displayDailyForecast(data, tempC){
     const followingDaysElement = document.querySelector("#followingDays");
     followingDaysElement.textContent = "";
     data.forecast.forecastday.slice(1).forEach(async day => {
@@ -981,6 +988,7 @@ async function displayWeatherSVG(weatherData){
         case "patchy light snow with thunder":
         case "patchy light rain with thunder":
         case "moderate or heavy rain with thunder":
+        case "thundery outbreaks in nearby":
             return (0,_imgs_svgs_imgManipulation_createSVGImg__WEBPACK_IMPORTED_MODULE_0__["default"])(_imgs_svgs_weather_reshot_icon_electric_clouds_DKLY6EF9H5_svg__WEBPACK_IMPORTED_MODULE_2__, "weatherSVG");
             
         case "patchy rain possible":
@@ -1079,6 +1087,43 @@ function updateSearch(){
     const newLocation = locationSearchBarElement.value;
     locationSearchBarElement.value = "";
     return newLocation;
+}
+
+/***/ }),
+
+/***/ "./src/DOMManipulation/updateUI.js":
+/*!*****************************************!*\
+  !*** ./src/DOMManipulation/updateUI.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ updateUI)
+/* harmony export */ });
+/* harmony import */ var _createMainChildElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createMainChildElements */ "./src/DOMManipulation/createMainChildElements.js");
+/* harmony import */ var _displayCurrentDayAdditionalInfo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./displayCurrentDayAdditionalInfo */ "./src/DOMManipulation/displayCurrentDayAdditionalInfo.js");
+/* harmony import */ var _displayCurrentDayForecast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./displayCurrentDayForecast */ "./src/DOMManipulation/displayCurrentDayForecast.js");
+/* harmony import */ var _displayCurrrentDayConditionTimeline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./displayCurrrentDayConditionTimeline */ "./src/DOMManipulation/displayCurrrentDayConditionTimeline.js");
+/* harmony import */ var _displayDailyForecast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./displayDailyForecast */ "./src/DOMManipulation/displayDailyForecast.js");
+
+
+
+
+
+
+async function updateUI(weatherData, tempC) {
+    const mainElement = document.querySelector("main");
+    mainElement.textContent = "";
+    mainElement.appendChild((0,_createMainChildElements__WEBPACK_IMPORTED_MODULE_0__["default"])());
+    try{   
+        await (0,_displayCurrentDayForecast__WEBPACK_IMPORTED_MODULE_2__["default"])(weatherData, tempC);
+        await (0,_displayDailyForecast__WEBPACK_IMPORTED_MODULE_4__["default"])(weatherData);
+        await (0,_displayCurrrentDayConditionTimeline__WEBPACK_IMPORTED_MODULE_3__["default"])(weatherData, tempC);
+        await (0,_displayCurrentDayAdditionalInfo__WEBPACK_IMPORTED_MODULE_1__["default"])(weatherData);
+    }catch(err){
+        console.log(err)
+    }
 }
 
 /***/ }),
@@ -1365,8 +1410,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DOMManipulation_displayDailyForecast__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DOMManipulation/displayDailyForecast */ "./src/DOMManipulation/displayDailyForecast.js");
 /* harmony import */ var _DOMManipulation_locationError__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DOMManipulation/locationError */ "./src/DOMManipulation/locationError.js");
 /* harmony import */ var _DOMManipulation_updateSearch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DOMManipulation/updateSearch */ "./src/DOMManipulation/updateSearch.js");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
-/* harmony import */ var _weatherAPIFunctions_getWeather__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./weatherAPIFunctions/getWeather */ "./src/weatherAPIFunctions/getWeather.js");
+/* harmony import */ var _DOMManipulation_updateUI__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./DOMManipulation/updateUI */ "./src/DOMManipulation/updateUI.js");
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _weatherAPIFunctions_getWeather__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./weatherAPIFunctions/getWeather */ "./src/weatherAPIFunctions/getWeather.js");
+
 
 
 
@@ -1386,8 +1433,12 @@ const numberOfDaysForecasted = 3;
 
 
 document.addEventListener("DOMContentLoaded", async ()=> {
+    const tempToggleElement = document.querySelector("#tempToggle");
+    const tempToggleSwitchElement = document.querySelector("#tempToggleSwitch");
     const updateButtonElement = document.querySelector("#weatherUpdate");
     const mainElement = document.querySelector("main");
+    let tempC = true;
+    let searchedLocation = "";
     (0,_DOMManipulation_activateKeyboardEventlisteners__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
     updateButtonElement.addEventListener("click", async () => {
@@ -1395,18 +1446,26 @@ document.addEventListener("DOMContentLoaded", async ()=> {
         const newSearch = (0,_DOMManipulation_updateSearch__WEBPACK_IMPORTED_MODULE_7__["default"])();
         try{
 
-            const weatherData = await (0,_weatherAPIFunctions_getWeather__WEBPACK_IMPORTED_MODULE_9__["default"])(weatherAPI, newSearch, numberOfDaysForecasted);
+            const weatherData = await (0,_weatherAPIFunctions_getWeather__WEBPACK_IMPORTED_MODULE_10__["default"])(weatherAPI, newSearch, numberOfDaysForecasted);
+            searchedLocation = weatherData.location.name;
             console.log(weatherData);
-            mainElement.appendChild((0,_DOMManipulation_createMainChildElements__WEBPACK_IMPORTED_MODULE_1__["default"])());
-            (0,_DOMManipulation_displayCurrentDayForecast__WEBPACK_IMPORTED_MODULE_3__["default"])(weatherData);
-            (0,_DOMManipulation_displayDailyForecast__WEBPACK_IMPORTED_MODULE_5__["default"])(weatherData);
-            (0,_DOMManipulation_displayCurrrentDayConditionTimeline__WEBPACK_IMPORTED_MODULE_4__["default"])(weatherData);
-            (0,_DOMManipulation_displayCurrentDayAdditionalInfo__WEBPACK_IMPORTED_MODULE_2__["default"])(weatherData);
+            (0,_DOMManipulation_updateUI__WEBPACK_IMPORTED_MODULE_8__["default"])(weatherData, tempC);
         }catch(err){
-            mainElement.appendChild((0,_DOMManipulation_locationError__WEBPACK_IMPORTED_MODULE_6__["default"])(err))
+            mainElement.appendChild((0,_DOMManipulation_locationError__WEBPACK_IMPORTED_MODULE_6__["default"])(err));
         }
         
     });
+    
+    tempToggleElement.addEventListener("click",async ()=>{
+        tempC = !tempC;
+        if(searchedLocation !== ""){
+            const weatherData = await (0,_weatherAPIFunctions_getWeather__WEBPACK_IMPORTED_MODULE_10__["default"])(weatherAPI, searchedLocation, numberOfDaysForecasted);
+            (0,_DOMManipulation_updateUI__WEBPACK_IMPORTED_MODULE_8__["default"])(weatherData, tempC);
+        }
+        tempToggleSwitchElement.classList.toggle("americaFY");
+    });
+
+
 });
 
 
@@ -1415,4 +1474,4 @@ document.addEventListener("DOMContentLoaded", async ()=> {
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle3fcee33c45883e08f445.js.map
+//# sourceMappingURL=bundle64fa37659b08e49a5dbc.js.map
