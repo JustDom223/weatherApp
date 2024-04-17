@@ -1,5 +1,9 @@
 *{
-    border: 1px solid red;
+    /* border: 1px solid red; */
+}
+
+p{
+    margin: 0;
 }
 
 /* Global */
@@ -35,6 +39,30 @@ header{
 #tempUnits{
     grid-column: 3/4;
     width: fit-content;
+    display: flex;
+}
+
+#tempToggle {
+    border: 1px black solid;
+    display: flex;
+    width: 30px;
+    border-radius: 20px;
+    justify-content: start;
+    position: relative;
+}
+
+#tempToggleSwitch {
+    border: 1px black solid;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    transition: transform 500ms ease-in-out;
+    position: absolute;
+    left: 0;
+}
+
+#tempToggleSwitch.americaFY {
+    transform: translateX(85%);
 }
 /* Main contents */
 main{
@@ -49,7 +77,20 @@ main{
 
 }
 
+#mainContent{
+    background-color: rgb(165, 213, 255);
+    grid-column: 2/3;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
 /* Current day card info */
+
+.weatherSVG{
+    height: 80px;
+}
 
 #currentDayCard{
     width: 100%;
@@ -61,10 +102,40 @@ main{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+#dailyTimeline{
+    display: flex;
+    flex-direction: column;
+}
+
+#hourlyTimelineContainer{
+    display: flex;
+    /* justify-content: space-between; */
+    /* flex-direction: column; */
+}
+
+.conditionSVG{
+    height: 20px;
+}
+
 #dayMainInfo{
     
     display: flex;
     flex-direction: column;
+}
+
+#daySunriseSunset{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+}
+
+.sun{
+    display: flex;
+    flex-direction: column;
+}
+
+.sunSVG{
+    height: 40px;
 }
 
 #dayAdditionalInfo{
